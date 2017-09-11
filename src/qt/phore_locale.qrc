@@ -1,0 +1,17 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="ca">locale/phore_ca.qm</file>
+        <file alias="da">locale/phore_da.qm</file>
+        <file alias="de">locale/phore_de.qm</file>
+        <file alias="en">locale/phore_en.qm</file>
+        <file alias="en_US">locale/phore_en_US.qm</file>
+        <file alias="es">locale/phore_es.qm</file>
+        <file alias="fr_FR">locale/phore_fr_FR.qm</file>
+        <file alias="it">locale/phore_it.qm</file>
+        <file alias="ja">locale/phore_ja.qm</file>
+        <file alias="pt">locale/phore_pt.qm</file>
+        <file alias="ro_RO">locale/phore_ro_RO.qm</file>
+        <file alias="ru">locale/phore_ru.qm</file>
+        <file alias="zh_TW">locale/phore_zh_TW.qm</file>
+    </qresource>
+</RCC>
