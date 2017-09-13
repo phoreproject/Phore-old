@@ -7,6 +7,11 @@ Phore is a cutting edge cryptocurrency, with many features not available in most
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
   with collateral of 10K PHR
 
+## BCT Thread ##
+
+https://bitcointalk.org/index.php?topic=606809.0
+
+Rebrand from KryptKoin [KTK] to Phore [PHR]
   
 ## Coin Specs ##
 <table>
