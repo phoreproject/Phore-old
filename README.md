@@ -9,7 +9,7 @@ Phore is a cutting edge cryptocurrency, with many features not available in most
 
 ## BCT Thread ##
 
-https://bitcointalk.org/index.php?topic=606809.0
+https://bitcointalk.org/index.php?topic=2307909.0
 
 Rebrand from KryptKoin [KTK] to Phore [PHR]
   
