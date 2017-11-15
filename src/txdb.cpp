@@ -203,7 +203,6 @@ bool CBlockTreeDB::ReadAddrIndex(uint160 addrid, std::vector<CExtDiskTxPos> &lis
 
     for(pcursor->Seek(firstKey.str()); pcursor->Valid(); pcursor->Next()) {
         leveldb::Slice key = pcursor->key();
-        leveldb::Slice value = pcursor->value();
         CDataStream ssKey(key.data(), key.data() + key.size(), SER_DISK, CLIENT_VERSION);
         char id;
         ssKey >> id;
@@ -211,9 +210,8 @@ bool CBlockTreeDB::ReadAddrIndex(uint160 addrid, std::vector<CExtDiskTxPos> &lis
             uint64_t lid;
             ssKey >> lid;
             if(lid == lookupid) {
-                CDataStream ssValue(value.data(), value.data() + value.size(), SER_DISK, CLIENT_VERSION);
                 CExtDiskTxPos position;
-                ssValue >> position;
+                ssKey >> position;
                 list.push_back(position);
             } else {
                 break;

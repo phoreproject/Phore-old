@@ -2207,7 +2207,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         if (i > 0) {
             blockundo.vtxundo.push_back(CTxUndo());
         }
-        UpdateCoins(tx, state, view, i == 0 ? undoDummy : blockundo.vtxundo.back(), pindex->nHeight);
         if (fTxIndex)
             vPosTxid.push_back(std::make_pair(tx.GetHash(), pos));
         if (fAddrIndex) {
@@ -2221,6 +2220,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             BOOST_FOREACH(const CTxOut &txout, tx.vout)
             BuildAddrIndex(txout.scriptPubKey, pos, vPosAddrid);
         }
+
+        UpdateCoins(tx, state, view, i == 0 ? undoDummy : blockundo.vtxundo.back(), pindex->nHeight);
         pos.nTxOffset += ::GetSerializeSize(tx, SER_DISK, CLIENT_VERSION);
     }
 
