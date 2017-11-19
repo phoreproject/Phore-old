@@ -2,14 +2,14 @@ Phore Core integration/staging repository
 =====================================
 
 Phore is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
-- Anonymized transactions using coin mixing technology, we call it _Obfuscation_.
+- Anonymized transactions using zerocoin technology.
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
   with collateral of 10K PHR
 
 ## BCT Thread ##
 
-https://bitcointalk.org/index.php?topic=606809.0
+https://bitcointalk.org/index.php?topic=2307909.0
 
 Rebrand from KryptKoin [KTK] to Phore [PHR]
   
@@ -24,6 +24,9 @@ Rebrand from KryptKoin [KTK] to Phore [PHR]
 ## PoS Rewards Breakdown ##
 
 <table>
-<th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
-<tr><td>Infinite</td><td>7 PHR</td><td>60% (4.2 PHR)</td><td>40% (2.8 PHR)</td></tr>
+<th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Stakers</th><th>Budget</th>
+<tr><td><250000</td><td>7.7 PHR</td><td>60% (4.2 PHR)</td><td>40% (2.8 PHR)</td><td>10% (0.7 PHR)</td></tr>
+<tr><td>250000-518399</td><td>5 PHR</td><td>60% (2.7 PHR)</td><td>40% (1.8 PHR)</td><td>10% (0.5 PHR)</td></tr>
+<tr><td>518399-1036798</td><td>4 PHR</td><td>60% (2.16 PHR)</td><td>40% (1.44 PHR)</td><td>10% (0.4 PHR)</td></tr>
+<tr><td>1036798>Infinite</td><td>3 PHR</td><td>60% (1.62 PHR)</td><td>40% (1.08 PHR)</td><td>10% (0.3 PHR)</td></tr>
 </table>

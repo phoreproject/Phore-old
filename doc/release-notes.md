@@ -1,13 +1,28 @@
-Phore Core version 2.2.1 is now available from:
+Phore Core version 3.0.4 is now available from:
 
   <https://github.com/phore-project/phore/releases>
 
-This is a new minor version release, including various bug fixes and
+This is a new minor-revision version release, including various bug fixes and
 performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
   <https://github.com/phore-project/phore/issues>
+
+
+Mandatory Update
+==============
+
+Phore Core v3.0.4 is a mandatory update for all users. This release contains various updates/fixes pertaining to the zPHR protocol, supply tracking, block transmission and relaying, as well as usability and quality-of-life updates to the GUI.
+
+Users will have a grace period to update their clients before versions prior to this release are no longer allowed to connect to this (and future) version(s).
+
+
+How to Upgrade
+==============
+
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/Phore-Qt (on Mac) or phored/phore-qt (on Linux).
+
 
 Compatibility
 ==============
@@ -23,51 +38,34 @@ Please do not report issues about Windows XP to the issue tracker.
 Phore Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
+### :exclamation::exclamation::exclamation: MacOS 10.13 High Sierra :exclamation::exclamation::exclamation:
+
+**Currently there are issues with the 3.0.x gitian releases on MacOS version 10.13 (High Sierra), no reports of issues on older versions of MacOS.**
+
+
 Notable Changes
 ===============
 
-Block Data Corruption
+Refactoring of zPhr Spend Validation Code
 ---------------------
+zPhr spend validation was too rigid and did not give enough slack for reorganizations. Many staking wallets were unable to reorganize back to the correct blockchain when they had an orphan stake which contained a zPhr spend. zPhr double spending validation has been refactored to properly account for reorganization.
 
-Additional startup procedures have been added to fix corrupted blockchain databases.
-The majority of users that are experiencing #106 (ConnectBlock() assertion on startup)
-that have tested the new wallet have reported that their corrupt blockchain has
-successfully been repaired. The new code will automatically detect and repair the
-blockchain if it is able to.
+Money Supply Calculation Fix
+---------------------
+Coin supply incorrectly was counting spent zPhr as newly minted coins that are added to the coin supply, thus resulting in innacurate coin supply data.
 
-If users still experience corruptions with the new wallet and it is not fixed
-with the new startup procedures, it is suggested that they try using the
-`-forcestart` startup flag which will bypass the new procedures altogether, and
-in rare cases allow the wallet to run. If the database is not fixed by either
-the automatic procedures or the `-forcestart` flag, the user should resync the
-blockchain.
+The coin supply is now correctly calculated and if a new wallet client is synced from scratch or if `-reindex=1` is used then the correct money supply will be calculated. If neither of these two options are used, the wallet client will automatically reindex the money supply calculations upon the first time opening the software after updating to v3.0.4. The reindex takes approximately 10-60 minutes depending on the hardware used. If the reindex is exited mid-process, it will continue where it left off upon restart.
 
-Additional progress has been made to prevent the wallet crashes that are causing
-the corrupted databases, for example removing the Trading Window (explained below)
-and fixing several other minor memory leaks that were inherited from the version
-of Bitcoin that Phore was forked from.
+Better Filtering of Transactions in Stake Miner
+---------------------
+The stake miner code now filters out zPhr double spends that were rarely being slipped into blocks (and being rejected by peers when sent broadcast).
 
-RPC Changes
------------
+More Responsive Shutdown Requests
+---------------------
+When computationally expensive accumulator calculations are being performed and the user requests to close the application, the wallet will exit much sooner than before.
 
-- Exporting or dumping an addresses' private key while the wallet is unlocked for
-  anonymization and Staking only is no longer possible.
 
-- A new command (`getstakingstatus`) has been added that returns the internal conditions
-  for staking to be activated and their status.
-
-- KeePass integration has been removed for the time being due to various inefficiencies
-  with it's code.
-
-Trading Window Removed
-----------------------
-
-The Bittrex trading window in the GUI wallet was problematic with it's memory
-handling, often leaking, and was overall an inefficient use of resources in it's
-current implementation. A revised multi-exchange trading window may be implemented
-at a later date.
-
-2.2.1 Change log
+3.0.4 Change log
 =================
 
 Detailed release notes follow. This overview includes changes that affect
@@ -75,47 +73,48 @@ behavior, not code moves, refactors and string updates. For convenience in locat
 the code changes and accompanying discussion, both the pull request and
 git merge commit are mentioned.
 
-### RPC and other APIs
-- #130 `ccb1526` [RPC] Add `getstakingstatus` method
-- #138 `4319af3` [RPC] Require password when using UnlockAnonymizeOnly
-- #142 `6b5cf7f` [RPC] Remove Keepass code due to Valgrind warnings
-
-### Block and Transaction Handling
-- #146 `bce67cb` [Wallet] Look at last CoinsView block for corruption fix process
-- #154 `1b3c0d7` [Consensus] Don't pass the genesis block through CheckWork
-
 ### P2P Protocol and Network Code
-- #168 `ac912d9` [Wallet] Update checkpoints with v2.2 chain
-- #162 `0c0d080` Remove legacy Dash code IsReferenceNode
-- #163 `96b8b00` [P2P] Change alert key to effectively disable it
+- #294 `27c0943` Add additional checks for txid for zphr spend. (presstab)
+- #301 `b8392cd` Refactor zPhr tx counting code. Add a final check in ConnectBlock() (presstab)
+- #306 `77dd55c` [Core] Don't send not-validated blocks (Mrs-X)
+- #312 `5d79bea` [Main] Update last checkpoint data (Fuzzbawls)
+- #325 `7d98ebe` Reindex zPhr blocks and correct stats. (presstab)
+- #327 `aa1235a` [Main] Don't limit zPHR spends from getting into the mempool (Fuzzbawls)
+- #329 `19b38b2` Update checkpoints. (presstab)
+- #331 `b1fb710` [Consensus] Bump protocol. Activate via Spork 15. (rejectedpromise)
+
+### Wallet
+- #308 `bd8a982` [Minting] Clear mempool after invalid block from miner (presstab)
+- #316 `ed192cf` [Minting] Better filtering of zPhr serials in miner. (presstab)
 
 ### GUI
-- #131 `238977b` [Qt] Adds base CSS styles for various elements
-- #134 `f7cabbe` [Qt] Edit masternode.conf in Qt-wallet
-- #135 `f8f1904` [Qt] Show path to wallet.dat in wallet-repair tab
-- #136 `53705f1` [Qt] Fix false flags for MultiSend notification when sending transactions
-- #137 `ad08051` [Qt] Fix Overview Page Balances when receiving
-- #141 `17a9e0f` [Qt] Squashed trading removal code
-- #151 `0409b12` [Qt] Avoid OpenSSL certstore-related memory leak
-- #165 `0dad320` [Qt] More place for long locales
+- #309 `f560ffc` [UI] Better error message when too much inputs are used for spending zPHR (Mrs-X)
+- #317 `b27cb72` [UI] Wallet repair option to resync from scratch (Mrs-X)
+- #323 `2b648be` [UI] Balance fix + bubble-help + usability improvements (Mrs-X)
+- #324 `8cdbb5d` disable negative confirmation numbers. (Mrs-X)
+
+### Build System
+- #322 `a91feb3` [Build] Add compile/link summary to configure (Fuzzbawls)
 
 ### Miscellaneous
-- #133 `fceb421` [Docs] Add GitHub Issue template and Contributor guidelines
-- #144 `e4e68bc` [Wallet] Reduce usage of atoi to comply with CWE-190
-- #152 `6a1de07` [Trivial] Use LogPrint for repetitive budget logs
-- #157 `41fdeaa` [Budget] Add log for removed budget proposals
-- #166 `d37b4aa` [Utils] Add ExecStop= to example systemd service
-- #167 `a6becee` [Utils] makeseeds script update
+- #298 `3580394` Reorg help to stop travis errors (Jon Spock)
+- #302 `efb648b` [Cleanup] Remove unused variables (rejectedpromise)
+- #307 `dbd801d` Remove hard-coded GIT_ARCHIVE define (Jon Spock)
+- #314 `f1c830a` Fix issue causing crash when phored --help was invoked (Jon Spock)
+- #326 `8b6a13e` Combine 2 LogPrintf statement to reduce debug.log clutter (Jon Spock)
+- #328 `a6c18c8` [Main] Phore not responding on user quitting app (Aaron Langford)
+
 
 Credits
 =======
 
 Thanks to everyone who directly contributed to this release:
-
-- Aaron Miller
 - Fuzzbawls
+- Jon Spock
 - Mrs-X
-- Spock
+- furszy
 - presstab
+- rejectedpromise
+- aaronlangford31
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/phore-project-translations/).

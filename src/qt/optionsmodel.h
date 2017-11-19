@@ -43,7 +43,8 @@ public:
         ThreadsScriptVerif,  // int
         DatabaseCache,       // int
         SpendZeroConfChange, // bool
-        ObfuscationRounds,   // int
+        ZeromintPercentage,  // int
+        ZeromintPrefDenom,   // int
         AnonymizePhoreAmount, //int
         ShowMasternodesTab,  // bool
         Listen,              // bool
@@ -89,7 +90,8 @@ private:
 
 signals:
     void displayUnitChanged(int unit);
-    void obfuscationRoundsChanged(int);
+    void zeromintPercentageChanged(int);
+    void preferredDenomChanged(int);
     void anonymizePhoreAmountChanged(int);
     void coinControlFeaturesChanged(bool);
 };

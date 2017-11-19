@@ -43,6 +43,21 @@ public:
             pn[i] = b.pn[i];
     }
 
+
+    bool IsNull() const
+    {
+        for (int i = 0; i < WIDTH; i++)
+            if (pn[i] != 0)
+                return false;
+        return true;
+    }
+
+    void SetNull()
+    {
+        memset(pn, 0, sizeof(pn));
+    }
+
+
     base_uint& operator=(const base_uint& b)
     {
         for (int i = 0; i < WIDTH; i++)
@@ -262,6 +277,11 @@ public:
     uint64_t Get64(int n = 0) const
     {
         return pn[2 * n] | (uint64_t)pn[2 * n + 1] << 32;
+    }
+
+    uint32_t Get32(int n = 0) const
+    {
+        return pn[2 * n];
     }
     /**
      * Returns the position of the highest bit set plus one, or zero if the

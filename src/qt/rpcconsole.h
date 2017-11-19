@@ -11,6 +11,7 @@
 #include "net.h"
 
 #include <QDialog>
+#include <QCompleter>
 
 class ClientModel;
 
@@ -68,6 +69,7 @@ public slots:
     void walletZaptxes2();
     void walletUpgrade();
     void walletReindex();
+    void walletResync();
 
     void reject();
     void message(int category, const QString& message, bool html = false);
@@ -129,6 +131,7 @@ private:
     QStringList history;
     int historyPtr;
     NodeId cachedNodeid;
+    QCompleter *autoCompleter;
 };
 
 #endif // BITCOIN_QT_RPCCONSOLE_H

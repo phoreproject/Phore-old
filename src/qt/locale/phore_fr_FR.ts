@@ -30,6 +30,10 @@
         <translation>Supprimer</translation>
     </message>
     <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Exporter l</translation>
+    </message>
+    <message>
         <source>&amp;Export</source>
         <translation>Exporter</translation>
     </message>
@@ -354,6 +358,10 @@
         <translation>Portefeuille</translation>
     </message>
     <message>
+        <source>Show general overview of wallet</source>
+        <translation>Vue d'ensemble du portefeuille</translation>
+    </message>
+    <message>
         <source>&amp;Send</source>
         <translation>Envoyer</translation>
     </message>
@@ -404,6 +412,14 @@
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
         <translation>Crypter les clés privées appartenant à votre portefeuille</translation>
+    </message>
+    <message>
+        <source>&amp;Backup Wallet...</source>
+        <translation>Sauvegarde du portefeuille...</translation>
+    </message>
+    <message>
+        <source>Backup wallet to another location</source>
+        <translation>Sauvegarder ailleurs le portefeuille </translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
@@ -470,6 +486,10 @@
         <translation>Ouvrir le fichier de configuration</translation>
     </message>
     <message>
+        <source>Show Automatic &amp;Backups</source>
+        <translation>Montrer les sauvegardes automatiques</translation>
+    </message>
+    <message>
         <source>Show automatically created wallet backups</source>
         <translation>Montrer les sauvegardes de portefeuille créées automatiquements</translation>
     </message>
@@ -478,8 +498,16 @@
         <translation>Adresses d'envoie</translation>
     </message>
     <message>
+        <source>Show the list of used sending addresses and labels</source>
+        <translation>Montrer la liste des adresses et libellés d'envoies utilisés</translation>
+    </message>
+    <message>
         <source>&amp;Receiving addresses...</source>
         <translation>Adresses de réception</translation>
+    </message>
+    <message>
+        <source>Show the list of used receiving addresses and labels</source>
+        <translation>Montrer la liste des adresses et libellés de réception utilisés</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
@@ -537,10 +565,6 @@
         <source>Encrypt and decrypt private keys using a passphrase</source>
         <translation>Crypter et décrypter les clés privées en utilisant une phrase secrète</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s) to Phore network</source>
-        <translation><numerusform>%n connection(s) au réseau Phore</numerusform><numerusform>%n connection(s) au réseau Phore</numerusform></translation>
-    </message>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Synchronisation avec le réseau</translation>
@@ -557,25 +581,9 @@
         <source>Up to date</source>
         <translation>A jour</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n heure</numerusform><numerusform>%n heures </numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n jours</numerusform><numerusform>%n jours</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n semaine</numerusform><numerusform>%n semaines</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 et %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n an</numerusform><numerusform>%n ans</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -591,7 +599,7 @@
     </message>
     <message>
         <source>Error</source>
-        <translation>Erreur </translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -717,6 +725,10 @@ Adresse : %4
     <message>
         <source>Copy address</source>
         <translation>Copier l'adresse</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>Copier le montant</translation>
     </message>
     <message>
         <source>Copy amount</source>
@@ -922,18 +934,6 @@ Adresse : %4
         <translation>0</translation>
     </message>
     <message>
-        <source>All Masternodes</source>
-        <translation>Toutes les masternodes</translation>
-    </message>
-    <message>
-        <source>Filter List:</source>
-        <translation>Liste de filtres :</translation>
-    </message>
-    <message>
-        <source>Filter masternode list</source>
-        <translation>Filtrer la liste des masternodes</translation>
-    </message>
-    <message>
         <source>Confirm masternode start</source>
         <translation>Confirmer le lancement de la masternode</translation>
     </message>
@@ -1103,6 +1103,73 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     <message>
         <source>Version</source>
         <translation>Version</translation>
+    </message>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Quantité :</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Montant :</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Payer à :</translation>
+    </message>
+    <message>
+        <source>Choose previously used address</source>
+        <translation>Choisir l'adresse précédemment utilisée</translation>
+    </message>
+    <message>
+        <source>Alt+A</source>
+        <translation>Alt+A</translation>
+    </message>
+    <message>
+        <source>Paste address from clipboard</source>
+        <translation>Copier l'adresse depuis le presse-papier</translation>
+    </message>
+    <message>
+        <source>Alt+P</source>
+        <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Priorité :</translation>
+    </message>
+    <message>
+        <source>Fee:</source>
+        <translation>Commission :</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>non</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Fonds insuffisants!</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>moyen</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Copier la quantité</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>Copier le montant</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Confirmer l'envoi des pièces</translation>
     </message>
     </context>
 <context>
@@ -1334,16 +1401,12 @@ Veuillez vérifier l'adresse et réessayer.</translation>
         <translation>Envoyer des pièces</translation>
     </message>
     <message>
-        <source>Inputs...</source>
-        <translation>Entrés...</translation>
-    </message>
-    <message>
         <source>Insufficient funds!</source>
         <translation>Fonds insuffisants!</translation>
     </message>
     <message>
         <source>Quantity:</source>
-        <translation>Quantité</translation>
+        <translation>Quantité :</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -1419,7 +1482,7 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Copier la comission</translation>
+        <translation>Copier la commission</translation>
     </message>
     <message>
         <source>Copy after fee</source>
@@ -1474,7 +1537,7 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Copié l'adresse depuis le presse-papier</translation>
+        <translation>Copier l'adresse depuis le presse-papier</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -1508,7 +1571,7 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     </message>
     <message>
         <source>The Phore address to sign the message with</source>
-        <translation>L</translation>
+        <translation>L'adresse Phore avec laquelle signer le message</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1520,7 +1583,7 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Copié l'adresse depuis le presse-papier</translation>
+        <translation>Copier l'adresse depuis le presse-papier</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -1629,9 +1692,49 @@ Veuillez vérifier l'adresse et réessayer.</translation>
         <source>Address</source>
         <translation>Adresse</translation>
     </message>
-    </context>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Date et heure a laquelle la transaction fut reçue</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Type de transaction.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>Adresse destinataire de la transaction.</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Montant retiré ou ajouté a la balance.</translation>
+    </message>
+</context>
 <context>
     <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Tous</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Aujourd'hui</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Cette semaine</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Ce mois</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Le mois dernier</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Cette année</translation>
+    </message>
     <message>
         <source>Copy address</source>
         <translation>Copier l'adresse</translation>
@@ -1690,14 +1793,25 @@ Veuillez vérifier l'adresse et réessayer.</translation>
     <name>WalletView</name>
     <message>
         <source>&amp;Export</source>
-        <translation>&amp;Exporter</translation>
+        <translation>Exporter</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Exporter l</translation>
+    </message>
+    </context>
+<context>
+    <name>ZPhrControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     </context>
 <context>
     <name>phore-core</name>
     <message>
         <source>Error</source>
-        <translation>Erreur </translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Information</source>

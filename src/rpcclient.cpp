@@ -2,7 +2,6 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Phore developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -99,13 +98,36 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"mnbudget", 4},
         {"mnbudget", 6},
         {"mnbudget", 8},
-        {"mnbudgetvoteraw", 1},
-        {"mnbudgetvoteraw", 4},
+        {"preparebudget", 2},
+        {"preparebudget", 3},
+        {"preparebudget", 5},
+        {"submitbudget", 2},
+        {"submitbudget", 3},
+        {"submitbudget", 5},
+        {"submitbudget", 7},
+        // disabled until removal of the legacy 'masternode' command
+        //{"startmasternode", 1},
+        {"mnvoteraw", 1},
+        {"mnvoteraw", 4},
         {"reservebalance", 0},
         {"reservebalance", 1},
         {"setstakesplitthreshold", 0},
         {"autocombinerewards", 0},
-        {"autocombinerewards", 1}};
+        {"autocombinerewards", 1},
+        {"getzerocoinbalance", 0},
+        {"listmintedzerocoins", 0},
+        {"listspentzerocoins", 0},
+        {"listzerocoinamounts", 0},
+        {"mintzerocoin", 0},
+        {"spendzerocoin", 0},
+        {"spendzerocoin", 1},
+        {"spendzerocoin", 2},
+        {"spendzerocoin", 3},
+        {"importzerocoins", 0},
+        {"exportzerocoins", 0},
+        {"exportzerocoins", 1},
+        {"resetmintzerocoin", 0}
+    };
 
 class CRPCConvertTable
 {
