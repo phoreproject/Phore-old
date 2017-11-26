@@ -33,9 +33,13 @@ RUN apt-get update && apt-get install -y \
     qttools5-dev-tools \
     libprotobuf-dev \
     protobuf-compiler \
-    libqrencode-dev
+    libqrencode-dev \
+    python-setuptools \
+    cmake \
+    libcap-dev \
+    libbz2-dev
 ADD . /phore
-RUN chmod +x autogen.sh src/leveldb/build_detect_platform share/genbuild.sh
+RUN chmod +x autogen.sh src/leveldb/build_detect_platform share/genbuild.sh depends/config.*
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
