@@ -12,6 +12,4 @@ jobs:
       - docker push $DOCKER_USERNAME/phore-build
     - stage: build phore
       script:
-      - docker run $DOCKER_USERNAME/phore-build ./autogen.sh
-      - docker run $DOCKER_USERNAME/phore-build ./configure
-      - docker run $DOCKER_USERNAME/phore-build make -j3
+      - docker run $DOCKER_USERNAME/phore-build /bin/sh -c "./autogen.sh && ./configure && make -j3"
