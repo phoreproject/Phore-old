@@ -55,7 +55,7 @@ before_script:
 script:
     - export TRAVIS_COMMIT_LOG=`git log --format=fuller -1`
     - BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
-    - chmod +x autogen.sh src/leveldb/build_detect_platform
+    - chmod +x autogen.sh src/leveldb/build_detect_platform share/genbuild.sh
     - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
     - ./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make $MAKEJOBS $GOAL
