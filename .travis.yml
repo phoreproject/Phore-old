@@ -17,12 +17,13 @@ jobs:
     - stage: build phore linux
       env: HOST=x86_64-unknown-linux-gnu DEP_OPTS="NO_QT=1 NO_UPNP=1 DEBUG=1 ALLOW_HOST_PACKAGES=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-zmq --with-gui=qt5 --enable-glibc-back-compat --enable-reduce-exports CPPFLAGS=-DDEBUG_LOCKORDER"
       script:
-      - docker run $DOCKER_USERNAME/phore-build /bin/sh -c "./autogen.sh && ./configure && make -j3"
+      - docker run -d --name phbuild $DOCKER_USERNAME/phore-build
+      - docker exec -t phbuild /bin/sh -c "./autogen.sh && ./configure && make -j3"
     - script:
-        - docker run $DOCKER_USERNAME/phore-build ls
-        - docker run $DOCKER_USERNAME/phore-build mkdir -p /phore/depends/SDKs depends/sdk-sources
-        - docker run $DOCKER_USERNAME/phore-build curl --fail https://rho.industries/osx/MacOSX${OSX_SDK}.sdk.tar.gz -o /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
-        - then docker run $DOCKER_USERNAME/phore-build tar -C /phore/depends/SDKs -xf /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
-        - docker run $DOCKER_USERNAME/phore-build make -j3 -C depends HOST=$HOST $DEP_OPTS
-        - docker run $DOCKER_USERNAME/phore-build /bin/sh -c "./autogen.sh && ./configure --prefix /phore/depends/$HOST && make -j3"
+      - docker run -d --name phbuild $DOCKER_USERNAME/phore-build
+      - docker exec -t phbuild mkdir -p /phore/depends/SDKs depends/sdk-sources
+      - docker exec -t phbuild curl --fail https://rho.industries/osx/MacOSX${OSX_SDK}.sdk.tar.gz -o /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
+      - docker exec -t phbuild tar -C /phore/depends/SDKs -xf /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
+      - docker exec -t phbuild make -j3 -C depends HOST=$HOST $DEP_OPTS
+      - docker exec -t phbuild /bin/sh -c "./autogen.sh && ./configure --prefix /phore/depends/$HOST && make -j3"
       env: HOST=x86_64-apple-darwin11 BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror" OSX_SDK=10.11 GOAL="deploy"
