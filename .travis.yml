@@ -8,7 +8,7 @@ jobs:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -t phore-build .
       - docker images
-      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/phore-build
+      - docker tag phore-build $DOCKER_USERNAME/phore-build
       - docker push $DOCKER_USERNAME/phore-build
     - stage: build phore
       script:
