@@ -3,10 +3,6 @@ dist: trusty
 os: linux
 language: minimal
 
-env: 
-  - HOST=x86_64-apple-darwin11 PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev" BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror" OSX_SDK=10.11 GOAL="deploy"
-  - 
-
 jobs:
   include:
     - stage: build docker image
