@@ -17,8 +17,7 @@ jobs:
     - stage: build phore linux
       script:
       - docker run $DOCKER_USERNAME/phore-build /bin/sh -c "./autogen.sh && ./configure && make -j3"
-    - stage: build phore osx 
-      script:
+    - script:
         - docker run $DOCKER_USERNAME/phore-build mkdir -p depends/SDKs depends/sdk-sources
         - docker run $DOCKER_USERNAME/phore-build curl --fail https://rho.industries/osx/MacOSX${OSX_SDK}.sdk.tar.gz -o depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
         - if [ -n "$OSX_SDK" ]; then docker run $DOCKER_USERNAME/phore-build tar -C depends/SDKs -xf depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz; fi
