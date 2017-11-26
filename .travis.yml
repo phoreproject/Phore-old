@@ -12,6 +12,8 @@ jobs:
         - docker images
         - docker tag phore-build $DOCKER_USERNAME/phore-build
         - docker push $DOCKER_USERNAME/phore-build
+      cache:
+        - /var/lib/docker
     - stage: build phore linux
       script:
       - docker run $DOCKER_USERNAME/phore-build /bin/sh -c "./autogen.sh && ./configure && make -j3"
