@@ -25,6 +25,8 @@ jobs:
       - docker exec -t phbuild curl --fail https://rho.industries/osx/MacOSX${OSX_SDK}.sdk.tar.gz -o /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
       - docker exec -t phbuild tar -C /phore/depends/SDKs -xf /phore/depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
       - docker exec -t phbuild make -j3 -C depends HOST=$HOST $DEP_OPTS
-      - docker exec -t phbuild /bin/sh -c "HOST=$HOST ./autogen.sh && ./configure --prefix /phore/depends/$HOST && make deploy -j3"
+      - docker exec -t phbuild HOST=$HOST ./autogen.sh HOST=$HOST
+      - docker exec -t phbuild HOST=$HOST ./configure --prefix /phore/depends/$HOST
+      - docker exec -t phbuild make deploy -j3
       - docker exec -t phbuild ls
       env: HOST=x86_64-apple-darwin11 BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror" OSX_SDK=10.11 GOAL="deploy"
