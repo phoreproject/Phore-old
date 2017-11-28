@@ -37,7 +37,9 @@ RUN apt-get update && apt-get install -y \
     python-setuptools \
     cmake \
     libcap-dev \
-    libbz2-dev
+    libbz2-dev \
+    librsvg2-bin \
+    imagemagick
 ADD . /phore
 RUN chmod +x autogen.sh src/leveldb/build_detect_platform share/genbuild.sh depends/config.*
 
