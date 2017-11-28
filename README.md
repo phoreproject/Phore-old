@@ -6,6 +6,8 @@ Phore is a cutting edge cryptocurrency, with many features not available in most
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
   with collateral of 10K PHR
+  
+** Unfortunately, the code was not properly forked on GitHub from the PIVX repository. This serves the same purpose. We forked from [PIVX-Project/PIVX](https://github.com/PIVX-Project/PIVX/).**
 
 ## BCT Thread ##
 
