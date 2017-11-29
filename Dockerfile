@@ -39,7 +39,8 @@ RUN apt-get update && apt-get install -y \
     libcap-dev \
     libbz2-dev \
     librsvg2-bin \
-    imagemagick
+    imagemagick \
+    libtiff-tools
 ADD . /phore
 RUN chmod +x autogen.sh src/leveldb/build_detect_platform share/genbuild.sh depends/config.*
 
