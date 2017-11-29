@@ -1,6 +1,6 @@
 package=native_mac_alias
 $(package)_version=2.0.6
-$(package)_download_path=https://codeload.github.com/al45tair/mac_alias/tar.gz/
+$(package)_download_path=https://github.com/al45tair/mac_alias/archive/
 $(package)_download_file=v$($(package)_version)
 $(package)_file_name=$(package)-$($(package)_version).tar.gz
 $(package)_sha256_hash=78a3332d9a597eebf09ae652d38ad1e263b28db5c2e6dd725fad357b03b77371
