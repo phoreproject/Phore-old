@@ -7,7 +7,7 @@ Phore is a cutting edge cryptocurrency, with many features not available in most
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
   with collateral of 10K PHR
 
-There was a 500k PHR pre-mine which went to paying for exchanges (70%) and as a fund for developers (30%).
+7.6M phore was produced for swapping. 500k were mined 1-200 blocks to bring that amount to 18.1M PHR, the amount needed for the swap.
 
 _Unfortunately, the code was not properly forked on GitHub from the PIVX repository. This serves the same purpose. We forked from [PIVX-Project/PIVX](https://github.com/PIVX-Project/PIVX/)._
 
