@@ -27,7 +27,7 @@ jobs:
       - docker exec -t phbuild make -j3 -C depends HOST=$HOST $DEP_OPTS
       - docker exec -t phbuild /bin/sh -c "HOST=$HOST ./autogen.sh"
       - docker exec -t phbuild /bin/sh -c "HOST=$HOST ./configure --prefix /phore/depends/$HOST"
-      - docker exec -t phbuild make -j3
-      - docker exec -t phbuild make deploy
+      - docker exec -t phbuild /bin/sh -c "HOST=$HOST make -j3"
+      - docker exec -t phbuild /bin/sh -c "HOST=$HOST make deploy"
       - docker exec -t phbuild ls
       env: HOST=x86_64-apple-darwin11 BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror" OSX_SDK=10.11 GOAL="deploy"
