@@ -41,7 +41,7 @@ The following are developer notes on how to build Phore on your native platform.
 
 Development
 ---------------------
-The Phore repo's [root README](https://github.com/Phore-Project/Phore/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Phore repo's [root README](https://github.com/phoreproject/Phore/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

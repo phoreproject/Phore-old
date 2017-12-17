@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.phore.org
-Vcs-Git: git://github.com/Phore-Project/Phore.git
-Vcs-Browser: http://github.com/Phore-Project/Phore
+Vcs-Git: git://github.com/phoreproject/Phore.git
+Vcs-Browser: http://github.com/phoreproject/Phore
 
 Package: phored
 Architecture: any

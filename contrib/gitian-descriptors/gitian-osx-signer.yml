@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/phore-project/phore-detached-sigs.git"
+- "url": "https://github.com/phoreproject/phore-detached-sigs.git"
   "dir": "signature"
 files:
 - "phore-osx-unsigned.tar.gz"

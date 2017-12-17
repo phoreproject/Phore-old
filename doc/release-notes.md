@@ -1,13 +1,13 @@
 Phore Core version 3.0.4 is now available from:
 
-  <https://github.com/phore-project/phore/releases>
+  <https://github.com/phoreproject/phore/releases>
 
 This is a new minor-revision version release, including various bug fixes and
 performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/phore-project/phore/issues>
+  <https://github.com/phoreproject/phore/issues>
 
 
 Mandatory Update

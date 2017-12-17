@@ -44,7 +44,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/Phore-Project/Phore.git
+        git clone https://github.com/phoreproject/Phore.git
         cd Phore
 
 2.  Build phored:

@@ -12,8 +12,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via SwiftX
 
 This mechanism has been integrated into Bitcore-Node-PHore which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/Phore-Project/insight-api-phore#web-socket-api](https://github.com/Phore-Project/insight-api-phore#web-socket-api) 
-* API: [https://github.com/Phore-Project/insight-api-phore#swifttx-transactions](https://github.com/Phore-Project/insight-api-phore#swifttx-transactions) 
+* WebSocket: [https://github.com/phoreproject/insight-api-phore#web-socket-api](https://github.com/phoreproject/insight-api-phore#web-socket-api) 
+* API: [https://github.com/phoreproject/insight-api-phore#swifttx-transactions](https://github.com/phoreproject/insight-api-phore#swifttx-transactions) 
 
 ####Command line option
 
