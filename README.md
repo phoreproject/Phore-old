@@ -6,7 +6,9 @@ Phore is a cutting edge cryptocurrency, with many features not available in most
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
 - Masternode technology used to secure the network and provide the above features, each Masternode is secured
   with collateral of 10K PHR
-  
+
+There was a 500k PHR pre-mine which went to paying for exchanges as a fund for developers.
+
 _Unfortunately, the code was not properly forked on GitHub from the PIVX repository. This serves the same purpose. We forked from [PIVX-Project/PIVX](https://github.com/PIVX-Project/PIVX/)._
 
 ## BCT Thread ##
@@ -14,7 +16,7 @@ _Unfortunately, the code was not properly forked on GitHub from the PIVX reposit
 https://bitcointalk.org/index.php?topic=2307909.0
 
 Rebrand from KryptKoin [KTK] to Phore [PHR]
-  
+
 ## Coin Specs ##
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
