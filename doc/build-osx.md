@@ -54,8 +54,9 @@ Instructions: Homebrew
         chmod +x share/genbuild.sh autogen.sh 
         ./autogen.sh
         ./configure --with-gui=qt5 
-(note: if this fails with libprotobuf not found, then make sure you have installed protobuf with brew and then run `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` and try again)
         make
+(note: if configure fails with libprotobuf not found see [Troubleshooting](#trouble) at the bottom)
+
 
 3.  It is also a good idea to build and run the unit tests:
 
@@ -124,9 +125,8 @@ Other commands:
     ./phore-cli --help  # for a list of command-line options.
     ./phore-cli help    # When the daemon is running, to get a list of RPC commands
     
-Troubleshooting:
+Troubleshooting:<a name="trouble"></a>
 ---------
-
 * brew install not working? Try replacing libzmq with zeromq in the brew install command
                 
 * libprotobuf not found during ./configure? Make sure you have installed protobuf with `brew install protobuf` and then run `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` and try again
