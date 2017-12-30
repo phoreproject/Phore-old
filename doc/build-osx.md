@@ -5,7 +5,7 @@ This guide will show you how to build phored (headless client) for OSX.
 Notes
 -----
 
-* Tested on OS X 10.7 through 10.10 on 64-bit Intel processors only.
+* Tested on OS X 10.7 through 10.10 on 64-bit Intel processors only. Please read carefully if you are building on High Sierra (10.13), there are special instructions.
 
 * All of the commands should be executed in a Terminal application. The
 built-in one is located in `/Applications/Utilities`.
@@ -39,6 +39,8 @@ Instructions: Homebrew
 #### Install dependencies using Homebrew
 
         brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 libzmq
+        
+        Note: On High Sierra (or when libzmq cannot be found), libzmq should be replaced with zeromq
 
 ### Building `phored`
 
@@ -48,9 +50,11 @@ Instructions: Homebrew
         cd Phore
 
 2.  Build phored:
-
+        
+        chmod +x share/genbuild.sh autogen.sh 
         ./autogen.sh
-        ./configure --with-gui=qt5
+        ./configure --with-gui=qt5 
+(note: if this fails with libprotobuf not found, then make sure you have installed protobuf with brew and then run `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` and try again)
         make
 
 3.  It is also a good idea to build and run the unit tests:
@@ -119,3 +123,25 @@ Other commands:
     ./phored -daemon # to start the phore daemon.
     ./phore-cli --help  # for a list of command-line options.
     ./phore-cli help    # When the daemon is running, to get a list of RPC commands
+    
+Troubleshooting:
+---------
+
+* brew install not working? Try replacing libzmq with zeromq in the brew install command
+                
+* libprotobuf not found during ./configure? Make sure you have installed protobuf with `brew install protobuf` and then run `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig` and try again
+                
+* Database errors have been seen in builds on High Sierra. One solution is to build Berkeley DB from source.
+        
+        cd ~
+        wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+        tar -xzvf db-4.8.30.NC.tar.gz
+        cd db-4.8.30.NC/build_unix/
+        ../dist/configure --enable-cxx
+        make
+        sudo make install
+
+        Then configure Phore with this build of BerkeleyDB,
+        ./configure --with-gui=qt5  LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib/" CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include/"
+                
+        
