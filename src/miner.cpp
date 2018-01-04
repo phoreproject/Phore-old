@@ -663,14 +663,14 @@ void static ThreadBitcoinMiner(void* parg)
 {
     boost::this_thread::interruption_point();
     CWallet* pwallet = (CWallet*)parg;
-    // try {
-    BitcoinMiner(pwallet, false);
-    boost::this_thread::interruption_point();
-    // } catch (std::exception& e) {
-    //     LogPrintf("ThreadBitcoinMiner() exception");
-    // } catch (...) {
-    //     LogPrintf("ThreadBitcoinMiner() exception");
-    // }
+    try {
+        BitcoinMiner(pwallet, false);
+        boost::this_thread::interruption_point();
+    } catch (std::exception& e) {
+        LogPrintf("ThreadBitcoinMiner() exception");
+    } catch (...) {
+        LogPrintf("ThreadBitcoinMiner() exception");
+    }
 
     LogPrintf("ThreadBitcoinMiner exiting\n");
 }
