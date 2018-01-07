@@ -2007,7 +2007,7 @@ https://www.transifex.com/phore-project/phore-project-translations</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation>状態:</translation>
+        <translation>ステータス:</translation>
     </message>
     <message>
         <source>Obfuscation Balance:</source>
@@ -3951,7 +3951,7 @@ To enable AutoMint add &apos;enablezeromint=1&apos; in phore.conf</source>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
-        <translation>トランザクションの状態。カーソルを合わせることで確認数を見れます。</translation>
+        <translation>トランザクションのステータス。カーソルを合わせることで確認数を見れます。</translation>
     </message>
     <message>
         <source>Date and time that the transaction was received.</source>
@@ -5813,7 +5813,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Phore Alert&quot; admin@foo.co
     </message>
     <message>
         <source>Status and/or Mesages from the last Mint Action.</source>
-        <translation>状態・直前の変換アクションでのメッセージログ。</translation>
+        <translation>ステータス・直前の変換アクションでのメッセージログ。</translation>
     </message>
     <message>
         <source>zPhr Control</source>
@@ -6038,6 +6038,149 @@ Immature: confirmed, but less than 2 mints of the same denomination after it was
     <message>
         <source>Change:</source>
         <translation>お釣り:</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>マルチシグネチャアドレスの利用</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>&amp;マルチシグネチャアドレスの生成</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>トランザクションを承認するために何人の人間が署名しなければならないか</translation>
+    </message>
+    <message>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>トランザクションの承認に必要なシグネチャの最小数</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>アドレスのラベル:</translation>
+    </message>
+    <message>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>トランザクションを証明する際の署名に使えるアドレスを追加する</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;アドレス/キーの追加</translation>
+    </message>
+    <message>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>署名に使うアドレスかパブリックキー:</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>マルチシグネチャアドレスを作成する</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>&amp;生成</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>ステータス:</translation>
+    </message>
+    <message>
+        <source>Use below to quickly import an address by its redeem. Don&apos;t forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>下記のredeemを使用して、アドレスをインポートします。クリックする前にラベルを入力してください！
+インポート後ブロックチェーンデータを参照し新しいアドレスについてのトランザクションを読み込みますので時間がかかります。
+しばらくお待ちください。</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;Redeemをインポート</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;マルチシグネチャ Txの生成</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>コインコントロール</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>インプット:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>選択された個数:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>枚数:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>送金に使うインプットを追加する</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>インプットの追加</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>アドレス / 枚数:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send PHR to</source>
+        <translation>PHRを送る宛先を追加</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>&amp;宛先を追加</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>与えられたインプットからアウトプットへ向かうトランザクションを生成</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;生成</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;マルチシグネチャ Txの署名</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>トランザクションの Hex:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>このウォレットかプライベートキーでトランザクションを署名</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;署名</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;トランザクションは指定回数署名されるまで無効です&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>&amp;コミット</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>トランザクションを署名するプライベートキーを追加する</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>&amp;プライベートキーの追加</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>プライベートキーのみで署名(非推奨)</translation>
     </message>
 </context>
 </TS>
