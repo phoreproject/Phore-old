@@ -316,6 +316,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-alertnotify=<cmd>", _("Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)"));
     strUsage += HelpMessageOpt("-alerts", strprintf(_("Receive and display P2P network alerts (default: %u)"), DEFAULT_ALERTS));
     strUsage += HelpMessageOpt("-blocknotify=<cmd>", _("Execute command when the best block changes (%s in cmd is replaced by block hash)"));
+    strUsage += HelpMessageOpt("-mempoolnotify=<cmd>", _("Execute command when a new transaction is accepted to the mempool (%s in cmd is replaced by transaction hash)"));
     strUsage += HelpMessageOpt("-checkblocks=<n>", strprintf(_("How many blocks to check at startup (default: %u, 0 = all)"), 500));
     strUsage += HelpMessageOpt("-conf=<file>", strprintf(_("Specify configuration file (default: %s)"), "phore.conf"));
     if (mode == HMM_BITCOIND) {
@@ -551,6 +552,14 @@ static void BlockNotifyCallback(const uint256& hashNewTip)
 
     boost::replace_all(strCmd, "%s", hashNewTip.GetHex());
     boost::thread t(runCommand, strCmd); // thread runs free
+}
+
+static void MempoolNotifyCallback(const uint256& hashTransaction)
+{
+    std::string strCmd = GetArg("-mempoolnotify", "");
+    
+    boost::replace_all(strCmd, "%s", hashTransaction.GetHex());
+    boost::thread t(runCommand, strCmd);
 }
 
 struct CImportingNow {
@@ -1619,10 +1628,13 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (mapArgs.count("-blocknotify"))
         uiInterface.NotifyBlockTip.connect(BlockNotifyCallback);
 
+    if (mapArgs.count("-mempoolnotify"))
+        uiInterface.NotifyTransaction.connect(MempoolNotifyCallback);
+
     // scan for better chains in the block chain database, that are not yet connected in the active best chain
     CValidationState state;
     if (!ActivateBestChain(state))
-        strErrors << "Failed to connect best block";
+        strErrors << "Failed t  o connect best block";
 
     std::vector<boost::filesystem::path> vImportFiles;
     if (mapArgs.count("-loadblock")) {
