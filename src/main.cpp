@@ -6133,6 +6133,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                      pfrom->id, pfrom->cleanSubVer,
                      tx.GetHash().ToString(),
                      mempool.mapTx.size());
+            
+            uiInterface.NotifyTransaction(tx.GetHash());
 
             // Recursively process any orphan transactions that depended on this one
             set<NodeId> setMisbehaving;
