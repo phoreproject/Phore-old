@@ -3182,7 +3182,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 BOOST_FOREACH(const CTxIn &txin, tx.vin) {
                     CCoins coins;
                     view.GetCoins(txin.prevout.hash, coins);
-                    BuildAddrIndex(coins.vout[txin.prevout.n].scriptPubKey, pos, vPosAddrid);
+                    if (coins.IsAvailable(txin.prevout.n)) {
+                        BuildAddrIndex(coins.vout[txin.prevout.n].scriptPubKey, pos, vPosAddrid);
+                    }
                 }
             }
             BOOST_FOREACH(const CTxOut &txout, tx.vout)
