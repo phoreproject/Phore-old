@@ -145,3 +145,7 @@ Troubleshooting:<a name="trouble"></a>
         ./configure --with-gui=qt5  LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib/" CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include/"
                 
         
+* If you receive `configure: error: OpenSSL ec header missing`, please change the flags to:
+
+        export LDFLAGS=-L/usr/local/opt/openssl/lib
+        export CPPFLAGS=-I/usr/local/opt/openssl/include
